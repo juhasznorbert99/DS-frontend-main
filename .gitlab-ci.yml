@@ -11,7 +11,7 @@ variables:
 
 build:
   stage: build
-  image: node:11
+  image: node:14
   script:
     - npm install --progress=false
     - npm run build
@@ -23,9 +23,9 @@ deploy:
     - apt-get update -qy
     - apt-get install -y ruby-dev
     - gem install dpl
-    - dpl --provider=heroku --app=react-demo-ds2020 --api-key=$HEROKU_API_KEY --skip_cleanup
+    - dpl --provider=heroku --app=juhasz-norbert-front --api-key=$HEROKU_API_KEY --skip_cleanup
   environment:
     name: staging
-    url: https://react-demo-ds2020.herokuapp.com/
+    url: https://juhasz-norbert-front.herokuapp.com/
   only:
     - production
