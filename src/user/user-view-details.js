@@ -86,7 +86,6 @@ class ViewDetailsContainer extends React.Component{
         this.fetchDevices();
     }
 
-
     render() {
         return (
             <div>
