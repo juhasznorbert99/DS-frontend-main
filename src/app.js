@@ -1,5 +1,5 @@
 import React from 'react'
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch, withRouter} from 'react-router-dom'
 import NavigationBar from './navigation-bar'
 import Home from './home/home';
 import PersonContainer from './person/person-container'
@@ -10,42 +10,61 @@ import ErrorPage from './commons/errorhandling/error-page';
 import styles from './commons/styles/project-style.css';
 import DeviceContainer from "./device/device-container";
 import Login from "./user/user-login";
+import ViewDetailsContainer from "./user/user-view-details";
 
 class App extends React.Component {
 
+    state = {
+        userRole: "",
+    }
+    
+    reload(){
+        this.setState({userRole: JSON.parse(localStorage.getItem('clientRole'))});
+        window.location.reload(false);
+    }
+    
+    handleCallback = (role) => {
+        this.setState({userRole: role})
+    }
+
     render() {
+        let {userRole} = this.state;
         return (
             <div className={styles.back}>
             <Router>
                 <div>
-                    <NavigationBar />
-                    <Switch>
+                   <Switch>
                         <Route
                             exact
                             path='/'
-                            render={() => <Home/>}
+                            render={() => <Login parentCallback={this.handleCallback} />}
                         />
 
                         <Route
                             exact
-                            path='/user'
-                            render={() => <UserContainer/>}
+                            path='/admin/user'
+                            render={() => <UserContainer />}
                         />
 
                         <Route
                             exact
                             path='/login'
-                            render={() => <Login/>}
+                            render={() => <Login parentCallback={this.handleCallback} />}
                         />
                         <Route
                             exact
-                            path='/sensor'
-                            render={() => <SensorContainer/>}
+                            path='/admin/sensor'
+                            render={() => <SensorContainer />}
                         />
                         <Route
                             exact
-                            path='/device'
-                            render={() => <DeviceContainer/>}
+                            path='/admin/device'
+                            render={() => <DeviceContainer />}
+                        />
+                        <Route
+                            exact
+                            path='/guest/details'
+                            render={() => <ViewDetailsContainer/>}
                         />
                         {/*Error*/}
                         <Route

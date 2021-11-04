@@ -85,8 +85,7 @@ class AddDeviceForm extends React.Component{
     fetchDevices(){
         return API_DEVICES.getDevices((result, status, err) => {
             if (result !== null && status === 200) {
-                //TODO add all devices to result where client == null
-                let newResult = [];
+               let newResult = [];
                 for(let i=0;i<result.length; i++){
                     if(result[i].client === null)
                         newResult.push(result[i]);
@@ -131,10 +130,41 @@ class AddDeviceForm extends React.Component{
 
     };
 
+    registerDevice(device){
+        return API_DEVICES.postDevice(device, (result, status, error) => {
+            if (result !== null && (status === 200 || status === 201)) {
+                console.log("Successfully inserted device with id: " + result);
+                this.reloadHandler();
+            } else {
+                this.setState(({
+                    errorStatus: status,
+                    error: error
+                }));
+            }
+        });
+    }
 
     handleSubmit() {
         let values = $('#select-item').val();
-        console.log(values);
+        //console.log(values);
+        const client = JSON.parse(localStorage.getItem('client'));
+        let newDevices = [];
+        for(let i=0; i<this.state.devices.length;i++){
+            for(let j=0; j< values.length;j++){
+                if(this.state.devices[i].id===values[j]){
+                    this.state.devices[i].client= client;
+                    let d = this.state.devices[i];
+                    d.client = client;
+                    newDevices.push(d);
+                }
+            }
+        }
+/*        console.log(client);
+        console.log(newDevices);
+        console.log(this.state.devices);*/
+        for(let i=0;i<newDevices.length;i++){
+            this.registerDevice(newDevices[i]);
+        }
     }
     render() {
         return (

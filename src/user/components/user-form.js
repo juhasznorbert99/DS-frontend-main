@@ -63,8 +63,6 @@ class UserForm extends React.Component{
             errorStatus: 0,
             error: null,
             formIsValid: false,
-
-
         };
 
         this.handleChange = this.handleChange.bind(this);

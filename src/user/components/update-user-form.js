@@ -117,7 +117,6 @@ class UpdateSensorForm extends React.Component{
     }
 
     handleSubmit() {
-        //TODO in cazul in care e field-ul gol atunci punem valoarea veche
         const client = JSON.parse(localStorage.getItem('client'));
         console.log(client);
         let clientUsername='';

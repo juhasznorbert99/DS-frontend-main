@@ -130,7 +130,6 @@ class DeviceForm extends React.Component{
             }
         });
     }
-    //TODO not let creating a device without existing sensors
     handleSubmit() {
         let e = document.getElementById("sensorSelect");
         let sensorIndex = e.options[e.selectedIndex].value;

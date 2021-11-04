@@ -6,6 +6,8 @@ import {Container, Form, FormGroup, Table} from "react-bootstrap";
 import {Button} from "react-bootstrap";
 import * as API_LOGIN from "../user/api/login-api";
 import * as API_SENSORS from "../sensor/api/sensor-api";
+import {withRouter} from "react-router-dom";
+import { connect } from 'react-redux'
 
 class Login extends React.Component{
     constructor(props) {
@@ -79,7 +81,7 @@ class Login extends React.Component{
                                             <br/>
                                             <Form>
                                                 <div className="mb-3">
-                                                    <Input id="inputEmail" type="text" placeholder="Email address"
+                                                    <Input id="inputEmail" type="text" placeholder="Username"
                                                            required="" autoFocus=""
                                                            className="form-control rounded-pill border-0 shadow-sm px-4"/>
                                                 </div>
@@ -110,7 +112,6 @@ class Login extends React.Component{
     }
 
     login=()=> {
-        console.log("gregr");
         let usernameLogin = document.getElementById('inputEmail').value;
         let passwordLogin = document.getElementById('inputPassword').value;
         let user = {
@@ -120,6 +121,13 @@ class Login extends React.Component{
         API_LOGIN.getUser(user, (result, status, err) => {
             if (result !== null && status === 200) {
                 console.log(result);
+                this.props.parentCallback(result.role);
+                localStorage.setItem('clientRole', result.role)
+                if(result.role === "admin"){
+                    this.props.history.push({pathname: '/admin/user', state: { user: result, role: result.role}});
+                }else{
+                    this.props.history.push({pathname:'/guest/details', state: {userID: result.id}});
+                }
             } else {
                 this.setState(({
                     errorStatus: status,
@@ -129,5 +137,4 @@ class Login extends React.Component{
         });
     }
 }
-
-export default Login;
+export default withRouter(Login);
