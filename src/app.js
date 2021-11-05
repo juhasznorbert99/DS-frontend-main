@@ -1,8 +1,5 @@
 import React from 'react'
-import {BrowserRouter as Router, Route, Switch, withRouter} from 'react-router-dom'
-import NavigationBar from './navigation-bar'
-import Home from './home/home';
-import PersonContainer from './person/person-container'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import UserContainer from "./user/user-container";
 import SensorContainer from "./sensor/sensor-container";
 
@@ -11,6 +8,7 @@ import styles from './commons/styles/project-style.css';
 import DeviceContainer from "./device/device-container";
 import Login from "./user/user-login";
 import ViewDetailsContainer from "./user/user-view-details";
+import UserChartContainer from "./user/user-chart";
 
 class App extends React.Component {
 
@@ -65,6 +63,11 @@ class App extends React.Component {
                             exact
                             path='/guest/details'
                             render={() => <ViewDetailsContainer/>}
+                        />
+                        <Route
+                            exact
+                            path='/guest/charts'
+                            render={() => <UserChartContainer/>}
                         />
                         {/*Error*/}
                         <Route

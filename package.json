@@ -19,7 +19,7 @@
     "react-scripts": "^4.0.3",
     "react-table": "^6.10.0",
     "reactstrap": "^7.0.2",
-    "recharts": "latest"
+    "recharts": "^2.1.6"
   },
   "scripts": {
     "start": "react-scripts start",

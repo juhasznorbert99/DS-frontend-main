@@ -2,19 +2,7 @@ import React from 'react'
 import logo from './commons/images/energy.png';
 import {Container} from "react-bootstrap";
 import {Navbar} from "react-bootstrap";
-import {NavDropdown} from "react-bootstrap";
 import {Nav} from "react-bootstrap";
-import {withRouter} from "react-router-dom";
-import {lang} from "moment";
-import {Label} from "reactstrap";
-
-
-const textStyle = {
-    color: 'white',
-    textDecoration: 'none'
-};
-
-const check = false;
 
 const adminLink = (
     <>
@@ -33,6 +21,7 @@ const userLink = (
     <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
             <Nav.Link href="/guest/details">View Details</Nav.Link>
+            <Nav.Link href="/guest/charts">View Charts</Nav.Link>
         </Nav>
     </Navbar.Collapse>
     </>

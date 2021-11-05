@@ -1,5 +1,4 @@
 import React from "react";
-import Table from "../../commons/tables/table";
 import ReactTable from "react-table";
 
 

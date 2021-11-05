@@ -2,16 +2,15 @@ import React from "react";
 import APIResponseErrorMessage from "../commons/errorhandling/api-response-error-message";
 import * as API_USERS from "../user/api/user-api";
 import * as API_DEVICES from "../device/api/device-api";
-import {Card, CardHeader, Col, Label, Modal, ModalBody, ModalHeader, Row} from "reactstrap";
+import {Card, CardHeader, Col, Modal, ModalBody, ModalHeader, Row} from "reactstrap";
 import {Table} from "react-bootstrap";
 import UserForm from "./components/user-form";
 import {Button} from "react-bootstrap";
 import UpdateUserForm from "./components/update-user-form";
 import AddDeviceForm from "./components/add-device-form";
-import {useHistory, withRouter} from "react-router-dom";
+import { withRouter} from "react-router-dom";
 import PropTypes from "prop-types";
 import NavigationBar from "../navigation-bar";
-import AdminNavigationBar from "../navigation-bar-admin";
 
 class UserContainer extends React.Component{
     constructor(props) {

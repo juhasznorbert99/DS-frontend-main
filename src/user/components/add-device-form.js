@@ -1,10 +1,9 @@
 import React from "react";
 import validate from "./validators/user-validator";
 import {Button} from "react-bootstrap";
-import * as API_USERS from "../api/user-api";
 import APIResponseErrorMessage from "../../commons/errorhandling/api-response-error-message";
 import {Col, Row} from "reactstrap";
-import { FormGroup, Input, Label} from 'reactstrap';
+import { FormGroup} from 'reactstrap';
 import * as API_DEVICES from "../../device/api/device-api";
 import $ from 'jquery';
 

@@ -188,7 +188,6 @@ class DeviceContainer extends React.Component{
                             </ModalBody>
                         </Modal>
                     </div>
-
                 }
                 {
                     localStorage.getItem("clientRole") !== "admin" &&

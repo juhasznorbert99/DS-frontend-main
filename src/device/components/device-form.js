@@ -6,7 +6,6 @@ import * as API_SENSORS from "../../sensor/api/sensor-api";
 import APIResponseErrorMessage from "../../commons/errorhandling/api-response-error-message";
 import {Col, Row} from "reactstrap";
 import {FormGroup, Input, Label} from 'reactstrap';
-import $ from 'jquery';
 
 class DeviceForm extends React.Component{
     constructor(props) {

@@ -1,13 +1,10 @@
 import React from "react";
-import APIResponseErrorMessage from "../commons/errorhandling/api-response-error-message";
 import * as API_USERS from "../user/api/user-api";
-import {Card, CardHeader, Col, Input, Modal, ModalBody, ModalHeader, Row} from "reactstrap";
-import {Container, Form, FormGroup, Table} from "react-bootstrap";
+import {Input} from "reactstrap";
+import { Form} from "react-bootstrap";
 import {Button} from "react-bootstrap";
 import * as API_LOGIN from "../user/api/login-api";
-import * as API_SENSORS from "../sensor/api/sensor-api";
 import {withRouter} from "react-router-dom";
-import { connect } from 'react-redux'
 
 class Login extends React.Component{
     constructor(props) {
@@ -126,6 +123,7 @@ class Login extends React.Component{
                 if(result.role === "admin"){
                     this.props.history.push({pathname: '/admin/user', state: { user: result, role: result.role}});
                 }else{
+                    localStorage.setItem('userID', result.id);
                     this.props.history.push({pathname:'/guest/details', state: {userID: result.id}});
                 }
             } else {

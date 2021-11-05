@@ -1,13 +1,11 @@
 import React from "react";
 import APIResponseErrorMessage from "../commons/errorhandling/api-response-error-message";
 import * as API_SENSORS from "../sensor/api/sensor-api";
-import * as API_SENSOR_DATA from "../sensor/api/sensor-data-api";
 import { Card, CardHeader, Col, Modal, ModalBody, ModalHeader, Row} from "reactstrap";
 import {Table} from "react-bootstrap";
 import {Button} from "react-bootstrap";
 import SensorForm from "./components/sensor-form";
 import UpdateSensorForm from "../sensor/components/sensor-update-form";
-import AdminNavigationBar from "../navigation-bar-admin";
 import NavigationBar from "../navigation-bar";
 import PropTypes from "prop-types";
 import {withRouter} from "react-router-dom";
