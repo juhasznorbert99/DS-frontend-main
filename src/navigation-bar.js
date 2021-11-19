@@ -22,6 +22,7 @@ const userLink = (
         <Nav className="me-auto">
             <Nav.Link href="/guest/details">View Details</Nav.Link>
             <Nav.Link href="/guest/charts">View Charts</Nav.Link>
+            <Nav.Link href="/guest/sensorData">View Sensor Data</Nav.Link>
         </Nav>
     </Navbar.Collapse>
     </>
