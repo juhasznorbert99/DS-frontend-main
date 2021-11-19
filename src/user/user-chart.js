@@ -328,7 +328,7 @@ class UserChartContainer extends React.Component{
                             <strong> User Management </strong>
                         </CardHeader>
                         <Input type={"date"} onChange={this.handleChange}></Input>
-                        <LineChart width={1300} height={250} data={this.state.chartData}
+                        <LineChart width={1300} height={600} data={this.state.chartData}
                                    margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
                             <CartesianGrid strokeDasharray="3 3" />
                             <XAxis dataKey="name" />
