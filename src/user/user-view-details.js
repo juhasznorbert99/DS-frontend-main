@@ -84,7 +84,7 @@ class ViewDetailsContainer extends React.Component{
     }
 
     connect() {
-        const URL = "http://localhost:8080/socket";
+        const URL = "https://juhasz-norbert.herokuapp.com/socket";
         const websocket = new SockJS(URL);
         this.stompClient = Stomp.over(websocket);
         const stomp=this.stompClient;
