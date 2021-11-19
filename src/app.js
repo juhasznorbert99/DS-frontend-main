@@ -8,6 +8,7 @@ import styles from './commons/styles/project-style.css';
 import DeviceContainer from "./device/device-container";
 import Login from "./user/user-login";
 import ViewDetailsContainer from "./user/user-view-details";
+import ViewSensorDataContainer from "./user/user-sensorData-view";
 import UserChartContainer from "./user/user-chart";
 
 class App extends React.Component {
@@ -68,6 +69,12 @@ class App extends React.Component {
                             exact
                             path='/guest/charts'
                             render={() => <UserChartContainer/>}
+                        />
+                        <Route
+                            exact
+                            path='/guest/sensorData'
+                            render={() => <ViewSensorDataContainer/>}
+
                         />
                         {/*Error*/}
                         <Route
